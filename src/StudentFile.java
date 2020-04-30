@@ -2,9 +2,12 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 public class StudentFile {
+	
+	private static final String FILE_NAME = "student-management-data.bin";
+	
 	public static void StoreData(ArrayList<Student> studentArrayList) {
 		try {
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("student-data.bin"));
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME));
 			oos.write(studentArrayList.size());
 			for (Student student : studentArrayList) {
 				oos.writeObject(student);
@@ -18,7 +21,7 @@ public class StudentFile {
 	
 	public static void LoadData(ArrayList<Student> studentArrayList) {
 		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("student-data.bin"));
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_NAME));
 			Student student = null;
 			int number = ois.read();
 			for (int i = 0; i < number; i++) {
@@ -29,7 +32,7 @@ public class StudentFile {
 			ois.close();
 		}
 		catch(FileNotFoundException e) {
-			System.out.println("[Khong tim thay file student-data.bin]");
+//			System.err.println("[Khong tim thay file " + FILE_NAME + "]");
 		}
 		catch(IOException e) {
 			e.printStackTrace();

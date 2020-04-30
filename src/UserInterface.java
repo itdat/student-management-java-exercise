@@ -5,6 +5,7 @@ public class UserInterface {
 	}
 	
 	public boolean ShowConfirm(String msg) {
+		System.out.println("----------------------------------------");
 		System.out.print(msg);
 		Scanner sc = new Scanner(System.in);
 		char comfirm = sc.next().charAt(0);
@@ -15,6 +16,7 @@ public class UserInterface {
 	public String ShowPrompt(String msg) {
 		Scanner sc = new Scanner(System.in);
 		String val;
+		System.out.println("----------------------------------------");
 		do {
 			System.out.print(msg);
 			val = sc.nextLine();
@@ -23,14 +25,15 @@ public class UserInterface {
 	}
 	
 	public void PauseProgram() {
-		System.out.println("Bam phim bat ky de tro lai menu chinh.");
+		System.out.println("----------------------------------------");
+		System.out.print("Bam phim bat ky de tro lai menu chinh.");
 		Scanner sc = new Scanner(System.in);
 		sc.nextLine();
 	}
 
 	public boolean GetFormInputStudent(Student student) {
 		Scanner sc = new Scanner(System.in);
-		
+		System.out.println("----------------------------------------");
 		String name;
 		do {
 			System.out.print("Nhap ho va ten hoc sinh: ");
@@ -61,7 +64,6 @@ public class UserInterface {
 			System.out.print("Nhap ghi chu: ");
 			note = sc.nextLine();
 		} while (note.isEmpty());
-		
 		// Confirm
 		if (ShowConfirm("Vui long xac nhan thao tac (Y/N): ")) {
 			student.SetName(name);
@@ -80,6 +82,7 @@ public class UserInterface {
 	public int GetIDStudent() {
 		Scanner sc = new Scanner(System.in);
 		int id = -1;
+		System.out.println("----------------------------------------");
 		do {
 			System.out.print("Nhap ma hoc sinh: ");
 			id = sc.nextInt();
@@ -88,9 +91,11 @@ public class UserInterface {
 	}
 	
 	public int GetMenuOption(String[] options) {
+		System.out.println("----------------------------------------");
 		for (int i = 0; i < options.length; i++) {
 			System.out.println(i + 1 + ". " + options[i]);
 		}
+		System.out.println("----------------------------------------");
 		
 		int option;
 		Scanner sc = new Scanner(System.in);
@@ -116,13 +121,14 @@ public class UserInterface {
 	}
 	
 	public void ShowStudentList(ArrayList<Student> studentArrayList) {
+		System.out.println("----------------------------------------");
 		if (studentArrayList.size() == 0) {
 			System.out.println("Danh sach rong!");
 		} else {
+			System.out.println("           DANH SACH HOC SINH           ");
 			for (Student student : studentArrayList) {
 				ShowStudent(student);
 			}
-			System.out.println("----------------------------------------");
 		}
 	}
 }

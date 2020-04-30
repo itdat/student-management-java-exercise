@@ -73,7 +73,7 @@ public class Main {
 				ui.ShowAlert("Export thanh cong: " + name + ".csv");
 				break;
 			case 6:
-				ui.ShowAlert("Program is exited!");
+				ui.ShowAlert("Da thoat chuong trinh.");
 				System.exit(0);
 			}
 			ui.PauseProgram();
